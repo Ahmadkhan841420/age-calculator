@@ -1,132 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Age Calculator</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Age Calculator</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: #f0f4f8;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #e6f0fa;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      color: #333;
+    }
 
-        fieldset {
-            border: 2px solid #4a90e2;
-            border-radius: 10px;
-            padding: 20px 30px;
-            background-color: #ffffff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            width: 100%;
-        }
+    /* HEADER */
+    header {
+      background: #4a90e2;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 1.8em;
+      font-weight: 700;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+    }
 
-        legend {
-            font-size: 1.6em;
-            font-weight: 600;
-            color: #4a90e2;
-        }
+    /* MAIN CONTENT */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
 
-        label {
-            display: block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: #333;
-        }
+    h3 {
+      max-width: 700px;
+      margin-bottom: 20px;
+      color: #333;
+      line-height: 1.6;
+      font-weight: 400;
+    }
 
-        input[type="date"] {
-            width: 100%;
-            padding: 8px 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1em;
-            color: #333;
-            background-color: #f9f9f9;
-        }
+    fieldset {
+      border: none;
+      border-radius: 15px;
+      padding: 25px 30px;
+      background: #fff;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      max-width: 420px;
+      width: 100%;
+      margin-top: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-        input[type="button"] {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #4a90e2;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-            font-weight: 600;
-        }
+    fieldset:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    }
 
-        input[type="button"]:hover {
-            background-color: #357ab8;
-        }
+    legend {
+      font-size: 1.6em;
+      font-weight: 700;
+      color: #4a90e2;
+    }
 
-        #result {
-            margin-top: 20px;
-            font-size: 1.1em;
-            color: #2d2d2d;
-        }
-    </style>
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    input[type="date"] {
+      width: 100%;
+      padding: 10px 12px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1em;
+      background-color: #f9f9f9;
+      transition: border 0.3s;
+    }
+
+    input[type="date"]:focus {
+      border-color: #4a90e2;
+      outline: none;
+    }
+
+    input[type="button"], input[type="reset"] {
+      margin-top: 20px;
+      padding: 12px 20px;
+      background: #4a90e2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input[type="button"]:hover, input[type="reset"]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 1.1em;
+      font-weight: 600;
+      color: #2d2d2d;
+    }
+
+    /* About Section */
+    .about {
+      max-width: 650px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    .about h2 {
+      color: #4a90e2;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+      margin-top: auto;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* 📱 RESPONSIVE DESIGN */
+    @media (max-width: 768px) {
+      header {
+        font-size: 1.5em;
+        padding: 15px;
+      }
+      h3 {
+        font-size: 1em;
+        padding: 0 10px;
+      }
+      fieldset {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        font-size: 1.3em;
+        padding: 12px;
+      }
+      h3 {
+        font-size: 0.95em;
+        line-height: 1.4;
+      }
+      input[type="button"], input[type="reset"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 0.9em;
+      }
+      .about {
+        margin: 20px 10px;
+        padding: 15px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <fieldset>
-        <legend>Age Calculator</legend>
-        <form onsubmit="return false;">
-            <label for="dob">Date of Birth:</label>
-            <input type="date" id="dob" name="dob" placeholder="dd/mm/yyyy">
+  <!-- HEADER -->
+  <header>
+    DailyTasker
+  </header>
 
-            <label for="today">Age at the Date of:</label>
-            <input type="date" id="today" name="today" placeholder="dd/mm/yyyy">
+  <!-- MAIN -->
+  <main>
+    <h3>
+      Quickly calculate your exact age in years, months, and days. Enter your birthdate and see your real age instantly.
+    </h3>
 
-            <input type="button" value="Calculate" onclick="calculateAge()">
-        </form>   
-        <p id="result"></p>
+    <fieldset id="calculator">
+      <legend>Age Calculator</legend>
+      <form onsubmit="return false;">
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob">
+
+        <label for="today">Age at the Date of:</label>
+        <input type="date" id="today" name="today">
+
+        <input type="button" value="Calculate" onclick="calculateAge()">
+        <input type="reset" value="Reset" onclick="document.getElementById('result').textContent=''">
+      </form>   
+      <p id="result"></p>
     </fieldset>
 
-    <script>
-        function calculateAge() {
-            const dobInput = document.getElementById("dob").value;
-            const todayInput = document.getElementById("today").value;
+    <div class="about" id="about">
+      <h2>👨‍💻 About Developer</h2>
+      <p>
+        This website was developed by <b>Ahmad Raza Khan</b>, a passionate BCA student who loves building user-friendly web apps.
+      </p>
+    </div>
+  </main>
 
-            if (!dobInput || !todayInput) {
-                document.getElementById("result").textContent = "Please enter both dates.";
-                return;
-            }
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 DailyTasker | Designed by Ahmad Raza Khan
+  </footer>
 
-            const dob = new Date(dobInput);
-            const today = new Date(todayInput);
+  <script>
+    // Set today's date as default
+    document.getElementById("today").valueAsDate = new Date();
 
-            if (dob > today) {
-                document.getElementById("result").textContent = "Date of Birth cannot be after the given day.";
-                return;
-            }
+    function calculateAge() {
+      const dobInput = document.getElementById("dob").value;
+      const todayInput = document.getElementById("today").value;
 
-            let years = today.getFullYear() - dob.getFullYear();
-            let months = today.getMonth() - dob.getMonth();
-            let days = today.getDate() - dob.getDate();
+      if (!dobInput || !todayInput) {
+        document.getElementById("result").textContent = "⚠️ Please enter both dates.";
+        return;
+      }
 
-            if (days < 0) {
-                months--;
-                const prevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
-                days += prevMonth.getDate();
-            }
+      const dob = new Date(dobInput);
+      const today = new Date(todayInput);
 
-            if (months < 0) {
-                years--;
-                months += 12;
-            }
+      if (dob > today) {
+        document.getElementById("result").textContent = "⚠️ Date of Birth cannot be after the given date.";
+        return;
+      }
 
-            document.getElementById("result").textContent = 
-                `Age: ${years} years, ${months} months, and ${days} days.`;
-        }
-    </script>
+      let years = today.getFullYear() - dob.getFullYear();
+      let months = today.getMonth() - dob.getMonth();
+      let days = today.getDate() - dob.getDate();
+
+      if (days < 0) {
+        months--;
+        const prevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+        days += prevMonth.getDate();
+      }
+
+      if (months < 0) {
+        years--;
+        months += 12;
+      }
+
+      document.getElementById("result").textContent = 
+        `🎉 You are ${years} years, ${months} months, and ${days} days old.`;
+    }
+  </script>
 </body>
 </html>
-
